@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <title>ding_dup2</title>
+</head>
+<body>
+  <nav>
+    <a href="/">의약품 중복성분보기</a> |
+    <a href="/about/">about us</a> |
+    {% if user.is_authenticated %}
+      <form method="post" action="/accounts/logout/" style="display:inline;">
+        {% csrf_token %}
+        <button type="submit">로그아웃</button>
+      </form>
+    {% else %}
+      <a href="/accounts/login/">로그인</a>
+    {% endif %}
+  </nav>
+  <hr />
+  {% block content %}{% endblock %}
+</body>
+</html>
